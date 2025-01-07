@@ -1,0 +1,37 @@
+Step-by-Step Guide for setup sqlserver in docker:-
+
+1.Install Docker - https://www.docker.com/products/docker-desktop/
+2.Version Check  - docker --version
+3.Pull the SQL Server Docker Image - docker pull mcr.microsoft.com/mssql/server:2019-latest
+4.Run the SQL Server Container - docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong!Password" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2019-latest --- YourStrong!Password - Add my password
+5.Container Running or check - docker ps or docker ps -a (List all containers (including stopped ones))
+
+6.Connect to SQL Server - 
+
+    ** Server name: localhost,1433
+	** Authentication: SQL Server Authentication.
+	** Login: sa
+    ** Password: The password you set in the docker run command.
+	
+
+7.Stop and Remove the Container - docker stop sqlserver,docker rm sqlserver
+8.Remove the Image - docker rmi mcr.microsoft.com/mssql/server:2019-latest
+9.Restart a stopped container: - docker start sqlserver
+10.View container logs - docker logs sqlserver
+
+
+
+
+Benefits of Dockerized SQL Server:-
+
+    ** Isolation: No interference with your system configurations.
+    ** Portability: Easily run on any machine with Docker installed.
+    ** Cleanup: Quickly remove containers when done.
+    ** Persistence: Use volumes to save your work.
+
+
+
+
+
+
+ 
